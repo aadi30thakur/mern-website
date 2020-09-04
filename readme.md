@@ -1,20 +1,38 @@
-#  MERN project as Shopping website
+<h1 align="center">Welcome to mern_website 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-## Installation
+> A MERN WEBSITE WITH FULL BACKEND
 
-Use the  package manager [npm](https://www.npmjs.com/get-npm) to install npm.
+### ✨ [Demo](WORKING)
 
-```bash
+## Install
+
+```sh
 npm install
 ```
 
 ## Usage
 
-It is a scaleable applicaion for the future and can be used to sell various kinds of products
+```sh
+npm run dev
+```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Author
 
-Please make sure to update tests as appropriate.
+👤 **Aditya Thakur**
 
-Thankyou
+- Website: https://aadi30thakur.github.io/portfoli-V2/
+- Github: [@aadi30thakur](https://github.com/aadi30thakur)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
