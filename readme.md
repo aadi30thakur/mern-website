@@ -26,7 +26,7 @@ npm run dev
 
 👤 **Aditya Thakur**
 
-- Website: https://aadi30thakur.github.io/portfoli-V2/
+- Website: https://aadi30thakur.github.io/portfolio-V2/
 - Github: [@aadi30thakur](https://github.com/aadi30thakur)
 
 ## Show your support
