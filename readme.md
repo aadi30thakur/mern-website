@@ -8,7 +8,7 @@
 
 > A MERN WEBSITE WITH FULL BACKEND
 
-### ✨ [Demo](WORKING)
+### ✨ [Demo](https://tees-store.herokuapp.com/)
 
 ## Install
 
