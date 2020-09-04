@@ -12,11 +12,12 @@ const categoryRoutes = require("./routes/category");
 const productRoutes = require("./routes/product");
 const orderRoutes = require("./routes/order");
 const { urlencoded } = require("body-parser");
-
+const path = require("path");
 // mongoose.connect("mongodb://localhost:27017/test", {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
+
 mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -47,6 +48,14 @@ app.use("/api", orderRoutes);
 //_________________________________________________________________________________________
 //port
 const port = process.env.PORT || 8000;
+
+if (process.env.NODE_ENV === "production") {
+  //set a static folder
+  app.use(express.static("./frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 
 //_________________________________________________________________________________________
 // starting server
