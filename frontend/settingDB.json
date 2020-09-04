@@ -1,0 +1,7 @@
+{
+  "instantMongo": {
+    "connections": [
+      { "name": "tshit", "uri": "mongodb://localhost:8000/tshit" }
+    ]
+  }
+}
