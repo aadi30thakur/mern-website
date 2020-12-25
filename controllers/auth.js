@@ -37,8 +37,8 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
-  console.log("hello" + req.body.email);
-  console.log("hello" + req.body.password);
+  // console.log("hello" + req.body.email);
+  // console.log("hello" + req.body.password);
   const errors = validationResult(req);
   const { email, password } = req.body;
   if (!errors.isEmpty()) {
@@ -59,7 +59,7 @@ exports.signin = (req, res) => {
       });
     }
     //create token
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET );
     //put token in cookie
     res.cookie("token", token, { expire: new Date() + 99999 });
     //send the responce to front end
@@ -79,7 +79,7 @@ exports.signout = (req, res) => {
 exports.isSignedIn = expresjwt({
   secret: process.env.SECRET,
   userProperty: "auth",
-  algorithms: ['RS256'] 
+  algorithms: ['HS256']  
 });
 
 //custom middlewares

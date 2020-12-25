@@ -1,0 +1,10 @@
+body {
+  background-image: url("../images/wave.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}

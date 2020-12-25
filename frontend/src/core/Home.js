@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../styles.css";
+import { CardColumns } from "react-bootstrap";
+import "../Assets/CSS/Main.css";
 import Base from "./Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
@@ -23,17 +24,19 @@ const Home = () => {
   }, []);
 
   return (
-    <Base title="home page" description="welcome to the Tshirt store">
+    <Base title="HOME" description="welcome to the Brand new Tshirt store" >
       <div className="row text-center">
         <h1 className="text-white">All of tshirts</h1>
-        <div className="row">
-          {products.map((product, index) => {
-            return (
-              <div key={index} className="col-4 mb-4">
-                <Card product={product} />
-              </div>
-            );
-          })}
+        <div className=" text-center">
+          <CardColumns>
+            {products.map((product, index) => {
+              return (
+                <div key={index} className="col-4 mb-4">
+                  <Card product={product} />
+                </div>
+              );
+            })}
+          </CardColumns>
         </div>
       </div>
     </Base>

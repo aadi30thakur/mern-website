@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../styles.css";
+import { CardColumns } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+// import "../styles.css";
 import Base from "./Base";
-import Card from "./Card";
+import CardIND from "./Card";
 import { loadCart } from "./helper/CartHelper";
 
 const Cart = () => {
@@ -14,19 +16,27 @@ const Cart = () => {
   const loadAllProducts = () => {
     // console.log(products);
     return (
-      <div className="col-5">
-        <h2>this section to load products</h2>
-        {products.map((product, index) => (
-          <Card
-            key={index}
-            product={product}
-            addToCart={false}
-            removeFromCart={true}
-            setReload={setReload}
-            reload={reload}
-          />
-        ))}
-      </div>
+      <>
+        <h2>Products availabble in your cart</h2>
+        <div className='text-center'>
+          <CardColumns>
+            {products.map((product, index) => {
+              return (
+                <div key={index} className="col-2 mb-4">
+                  <CardIND
+                    product={product}
+                    addToCart={false}
+                    removeFromCart={true}
+                    setReload={setReload}
+                    reload={reload}
+                  />
+                </div>)
+            }
+
+            )}
+          </CardColumns>
+        </div>
+      </>
     );
   };
 
@@ -40,10 +50,10 @@ const Cart = () => {
 
   return (
     <Base title="Cart page" description="Ready to checkout">
-      <div className="row text-center">
-        <div className="col-6">{loadAllProducts()}</div>
+      {/* <div className="row text-center">
         <div className="col-6">{loadCheckout()}</div>
-      </div>
+      </div> */}
+      <div>{loadAllProducts()}</div>
     </Base>
   );
 };
