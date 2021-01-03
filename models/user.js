@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const crypto = require("crypto");
 
-const uuidv1 = require("uuid/v1");
+const uuidv1 = require("uuid");
 
 //var userSchema = new mongoose.Schema({})    @below line meaning
 var userSchema = new mongoose.Schema(
