@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 import { signin, authenticate, isAuthenticated } from "../auth/helper";
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "aadi30.thakur@gmail.com",
-    password: "aadi_2000",
+    email: "welcome@oyo.com",
+    password: "12345",
     error: "",
     loading: false,
     didRedirect: false,
@@ -106,8 +106,8 @@ const Signin = () => {
                 />
               </div>
             </div>
-            <button onClick={onSubmit} className="btn btn-success btn-block">
-              subiit
+            <button onClick={onSubmit} className="btn btn-success offset-2 col-md-10">
+              submit
             </button>
           </form>
         </div>
@@ -122,7 +122,7 @@ const Signin = () => {
       {signInForm()}
       {performRedirect()}
 
-      {/* <p className="text-white text-center">{JSON.stringify(values)}</p> */}    
+      {/* <p className="text-white text-center">{JSON.stringify(values)}</p> */}
     </Base>
   );
 };

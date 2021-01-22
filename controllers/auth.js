@@ -13,6 +13,7 @@ var expresjwt = require("express-jwt");
 // };
 
 exports.signup = (req, res) => {
+
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -22,10 +23,10 @@ exports.signup = (req, res) => {
     });
   }
   const user = new User(req.body);
-  user.save((err, user) => {
-    if (err) {
+  user.save((error, user) => {
+    if (error) {
       return res.status(400).json({
-        err: "NOT able to save user is database",
+        error: "NOT able to save user is database",
       });
     }
     res.json({
@@ -59,7 +60,7 @@ exports.signin = (req, res) => {
       });
     }
     //create token
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET );
+    const token = jwt.sign({ _id: user._id }, process.env.SECRET);
     //put token in cookie
     res.cookie("token", token, { expire: new Date() + 99999 });
     //send the responce to front end
@@ -79,7 +80,7 @@ exports.signout = (req, res) => {
 exports.isSignedIn = expresjwt({
   secret: process.env.SECRET,
   userProperty: "auth",
-  algorithms: ['HS256']  
+  algorithms: ['HS256']
 });
 
 //custom middlewares
