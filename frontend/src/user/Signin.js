@@ -82,7 +82,7 @@ const Signin = () => {
           <form action="">
             <div className="form-group">
               <div className="row">
-                <label className="text-light col-md-3 offset-md-2 mt-auto">
+                <label className="text-dark col-md-3 offset-md-2 mt-auto">
                   Email :
                 </label>
                 <input
@@ -95,7 +95,7 @@ const Signin = () => {
             </div>
             <div className="form-group">
               <div className="row">
-                <label className="text-light col-md-3 offset-md-2 mt-auto">
+                <label className="text-dark col-md-3 offset-md-2 mt-auto">
                   Password :
                 </label>
                 <input
@@ -106,9 +106,11 @@ const Signin = () => {
                 />
               </div>
             </div>
-            <button onClick={onSubmit} className="btn btn-success offset-2 col-md-10">
-              submit
-            </button>
+            <div className="col-10 offset-md-2">
+              <button onClick={onSubmit} className="btn btn-success form-control col-11">
+                submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
