@@ -26,8 +26,7 @@ const Home = () => {
   return (
     <Base title="HOME" description="welcome to the Brand new Tshirt store" >
       <div className="row text-center">
-        <h1 className="text-white">All of tshirts</h1>
-        <div className=" text-center">
+        <div className="offset-2 text-center">
           <CardColumns>
             {products.map((product, index) => {
               return (

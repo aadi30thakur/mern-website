@@ -94,7 +94,7 @@ const UpdateCategoory = ({ match }) => {
 
   return (
     <Base
-      title="create a category herre"
+      title="create a category here"
       description="add a new category  for new tshirts"
       className="container bg-info p-4"
     >

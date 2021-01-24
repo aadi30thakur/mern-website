@@ -116,7 +116,7 @@ const AddProduct = () => {
         <textarea
           onChange={handleChange("discription")}
           className="form-control"
-          placeholder="discription"
+          placeholder="description"
           value={discription}
         />
       </div>
@@ -172,12 +172,12 @@ const AddProduct = () => {
       discription="welcome to preduct creation section"
       className="container bg-info p-4"
     >
-      <h1 className="text-white">add product here</h1>
+      <h1 className="text-dark">add product here</h1>
 
       <Link to="/admin/dashboard" className="btn btn-md btn-dark mb-3">
         Admin home
       </Link>
-      <div className="row bg-dark text-white rounded">
+      <div className="row bg-dark text-dark rounded">
         <div className="col-md-8 offset-md-2">
           {successMessaasge()}
           {erorrMessage()}
