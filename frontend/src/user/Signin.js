@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { signin, authenticate, isAuthenticated } from "../auth/helper";
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "welcome@oyo.com",
+    email: "welcome@toMywebsite.com",
     password: "12345",
     error: "",
     loading: false,
