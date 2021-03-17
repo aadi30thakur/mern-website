@@ -31,14 +31,14 @@ export const getCategory = (categoryId) => {
     method: "GET",
   })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .catch((err) => console.log(err));
 };
 
 export const UpdateCategory = (categoryId, userId, token, category) => {
-  console.log(category);
+  // console.log(category);
   return fetch(`${API}/category/${categoryId}/${userId}`, {
     method: "PUT",
     headers: {
@@ -72,7 +72,7 @@ export const deleteCategory = (categoryId, userId, token) => {
 
 //create a product
 export const create_a_product = (userId, token, product) => {
-  console.log(product.get("discription"));
+  // console.log(product.get("discription"));
   return fetch(`${API}/product/create/${userId}`, {
     method: "POST",
     headers: {

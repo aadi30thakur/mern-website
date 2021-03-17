@@ -173,15 +173,13 @@ const StripeCheckout = () => {
                 .then(response => {
                     setInfo({ ...info, success: response.success, loading: false });
                     console.log("PAYMENT SUCCESS");
-
-                    //TODO: empty the cart
-                    //TODO: force reload
-                    createOrder(userId, token, products);
-                    cartEmpty();
+                    //createOrder(userId, token, products);
+                    // cartEmpty();
+                    setReload(!reload);
                 })
                 .catch(error => {
-                    setInfo({ loading: false, success: false });
-                    console.log("PAYMENT FAILED");
+                    setInfo({ loading: false, success: false, error: error });
+                    console.log("PAYMENT FAILED", error);
                 });
         });
     };

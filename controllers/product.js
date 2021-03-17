@@ -105,7 +105,7 @@ exports.updateProduct = (req, res) => {
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
     if (err) {
-      console.log(`error: ${err} `);
+      // console.log(`error: ${err} `);
       return res.status(400).json({
         error: `problem with image ${err}`,
       });

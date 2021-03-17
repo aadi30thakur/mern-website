@@ -11,7 +11,7 @@ exports.getToken = (req, res) => {
     gateway.clientToken.generate({
 
     }, (err, response) => {
-        // pass clientToken to your front-end
+
         if (err) {
             res.status(500).send(err);
         } else {
@@ -24,6 +24,7 @@ exports.getToken = (req, res) => {
 exports.processPayment = (req, res) => {
     let nonceFromTheClient = req.body.paymentMethodNonce;
     let amountFromTheClient = req.body.amount;
+
     gateway.transaction.sale({
         amount: amountFromTheClient,
         paymentMethodNonce: nonceFromTheClient,
@@ -31,11 +32,36 @@ exports.processPayment = (req, res) => {
             submitForSettlement: true
         }
     }, (err, result) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
+        if (result.success) {
             res.json(result)
+            // See result.transaction for details
+        } else {
+            res.status(500).send(err)
+            // Handle errors
         }
     });
 
+
+
+
+
+    // gateway.transaction.sale({
+    //     amount: amountFromTheClient,
+    //     paymentMethodNonce: nonceFromTheClient,
+    //     options: {
+    //         submitForSettlement: true
+    //     }
+    // }, (err, result) => {
+    //     if (err) {
+
+    //     } else {
+    //     }
+    // });
+
 }
+
+
+
+
+
+
