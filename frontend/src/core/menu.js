@@ -115,103 +115,104 @@ const Menu = ({ history }) => {
               <div className="right"></div>
             </div>
             <li className="nav-item active">
-              <span className="nav-link" href="javascript:void(0);">
-                {/* <span className="far fa-address-book" /> */}
-                <Link
-                  style={currentTab(history, "/")}
-                  className="nav-link"
-                  to="/">
-                  Home
+
+              {/* <span className="far fa-address-book" /> */}
+              <Link
+                style={currentTab(history, "/")}
+                className="nav-link"
+                to="/">
+                Home
                 </Link>
-              </span>
+
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="javascript:void(0);">
-                {/* <i className="fas fa-tachometer-alt"></i> */}
-                <Link
-                  style={currentTab(history, "/cart")}
-                  className="nav-link"
-                  to="/cart"
-                >
-                  Cart
+
+              {/* <i className="fas fa-tachometer-alt"></i> */}
+              <Link
+                style={currentTab(history, "/cart")}
+                className="nav-link"
+                to="/cart"
+              >
+                Cart
                 </Link>
-              </a>
+
             </li>
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
               <li className="nav-item">
-                <a className="nav-link" href="javascript:void(0);">
-                  {/* <i className="far fa-clone"></i> */}
-                  <Link
-                    style={currentTab(history, "/user/dashboard")}
-                    className="nav-link"
-                    to="/user/dashboard"
-                  >
-                    Dashboard
+
+                {/* <i className="far fa-clone"></i> */}
+                <Link
+                  style={currentTab(history, "/user/dashboard")}
+                  className="nav-link"
+                  to="/user/dashboard"
+                >
+                  Dashboard
                   </Link>
-                </a>
+
               </li>
             )}
 
             {isAuthenticated() && isAuthenticated().user.role === 1 && (
               <li className="nav-item">
-                <a className="nav-link" href="javascript:void(0);">
-                  {/* <i className="far fa-calendar-alt"></i> */}
-                  <Link
-                    style={currentTab(history, "/admin/dashboard")}
-                    className="nav-link"
-                    to="/admin/dashboard"
-                  >
-                    Admin Dashboard
+
+                {/* <i className="far fa-calendar-alt"></i> */}
+                <Link
+                  style={currentTab(history, "/admin/dashboard")}
+                  className="nav-link"
+                  to="/admin/dashboard"
+                >
+                  Admin Dashboard
                   </Link>
-                </a>
+
               </li>
             )}
 
             {!isAuthenticated() && (
               <Fragment>
                 <li className="nav-item">
-                  <a className="nav-link" href="javascript:void(0);">
-                    {/* <i className="far fa-chart-bar"></i> */}
-                    <Link
-                      style={currentTab(history, "/signup")}
-                      className="nav-link"
-                      to="/signup"
-                    >
-                      signup
+
+                  {/* <i className="far fa-chart-bar"></i> */}
+                  <Link
+                    style={currentTab(history, "/signup")}
+                    className="nav-link"
+                    to="/signup"
+                  >
+                    signup
                     </Link>
-                  </a>
+
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="javascript:void(0);">
-                    {/* <i className="far fa-copy"></i> */}
-                    <Link
-                      style={currentTab(history, "/signin")}
-                      className="nav-link"
-                      to="/signin"
-                    >
-                      signin
+
+                  {/* <i className="far fa-copy"></i> */}
+                  <Link
+                    style={currentTab(history, "/signin")}
+                    className="nav-link"
+                    to="/signin"
+                  >
+                    signin
                     </Link>
-                  </a>
+
                 </li>
               </Fragment>
             )}
 
             {isAuthenticated() && (
               <li className="nav-item">
-                <a className="nav-link" href="javascript:void(0);">
-                  {/* <i className="far fa-copy"></i>{" "} */}
-                  <Link
-                    className="nav-link text-warning"
-                    onClick={() => {
-                      signout(() => {
-                        history.push("/");
-                      });
-                    }}
-                  >
-                    signout
+
+                {/* <i className="far fa-copy"></i>{" "} */}
+                <Link
+                  to="/"
+                  className="nav-link text-warning"
+                  onClick={() => {
+                    signout(() => {
+                      history.push("/");
+                    });
+                  }}
+                >
+                  signout
                   </Link>
-                </a>
+
               </li>
             )}
           </ul>

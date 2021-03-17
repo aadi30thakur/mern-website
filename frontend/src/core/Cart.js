@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { CardColumns } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { reloadState, Products } from "../Recoil";
 // import "../styles.css";
 import Base from "./Base";
 import CardIND from "./Card";
 import { loadCart } from "./helper/CartHelper";
 
+
 const Cart = () => {
-  const [products, setProducts] = useState([]);
-  const [reload, setReload] = useState(false);
+  const [products, setProducts] = useRecoilState(Products);
+  const [reload, setReload] = useRecoilState(reloadState);
+  // const [product, set] = useRecoilState(reloadState);
 
   useEffect(() => {
     setProducts(loadCart());
   }, [reload]);
-  const loadAllProducts = () => {
+
+  const loadAllProducts = (products) => {
     // console.log(products);
     return (
       <>
-        <h2>Products availabble in your cart</h2>
+        <h2>Products available in your cart</h2>
+        <button >
+          <Link to="/Checkout">Checkout</Link>
+        </button>
         <div className='text-center'>
           <CardColumns>
             {products.map((product, index) => {
@@ -53,7 +62,7 @@ const Cart = () => {
       {/* <div className="row text-center">
         <div className="col-6">{loadCheckout()}</div>
       </div> */}
-      <div>{loadAllProducts()}</div>
+      <div>{products !== undefined ? loadAllProducts(products) : (<h3>No Products  in cart</h3>)}</div>
     </Base>
   );
 };

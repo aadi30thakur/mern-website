@@ -91,6 +91,7 @@ export const create_a_product = (userId, token, product) => {
 
 //read all product
 export const getProducts = (token) => {
+  console.log(token)
   return fetch(`${API}/products`, {
     method: "GET",
     headers: {

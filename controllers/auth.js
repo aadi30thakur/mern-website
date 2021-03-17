@@ -79,17 +79,17 @@ exports.signout = (req, res) => {
 //protected routes
 exports.isSignedIn = expresjwt({
   secret: process.env.SECRET,
-  userProperty: "auth",
   algorithms: ['HS256']
 });
 
 //custom middlewares
 
 exports.isAuthenticated = (req, res, next) => {
+  console.log(req.profile);
   let checker = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!checker) {
     return res.status(403).json({
-      error: "Access Denied   " + req.profile._id + " " + req.auth._id + " ",
+      error: "Access Denied",
     });
   }
   next();

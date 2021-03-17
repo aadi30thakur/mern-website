@@ -11,6 +11,7 @@ const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");
 const productRoutes = require("./routes/product");
 const orderRoutes = require("./routes/order");
+const paymentRoutes = require("./routes/payment");
 const { urlencoded } = require("body-parser");
 const path = require("path");
 // mongoose.connect("mongodb://localhost:27017/test", {
@@ -45,6 +46,7 @@ app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
+app.use("/api", paymentRoutes);
 //_________________________________________________________________________________________
 //port
 const port = process.env.PORT || 8000;

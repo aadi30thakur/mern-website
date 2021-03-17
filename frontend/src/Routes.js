@@ -15,44 +15,50 @@ import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategoory from "./admin/UpdateCategoory";
 import Cart from "./core/Cart";
+import StripeCheckout from "./core/StripeCheckout";
+import { RecoilRoot } from "recoil";
+
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/cart" exact component={Cart}></Route>
-        <Route path="/signup" exact component={Signup}></Route>
-        <Route path="/signin" exact component={Signin}></Route>
-        <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
-        <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
-        <AdminRoute
-          path="/admin/create/category"
-          exact
-          component={AddCategory}
-        />
+      <RecoilRoot>
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/cart" exact component={Cart}></Route>
+          <Route path="/signup" exact component={Signup}></Route>
+          <Route path="/signin" exact component={Signin}></Route>
+          <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
+          <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
+          <AdminRoute
+            path="/admin/create/category"
+            exact
+            component={AddCategory}
+          />
 
-        <AdminRoute
-          path="/admin/categories"
-          exact
-          component={ManageCategories}
-        />
-        <AdminRoute
-          path="/admin/create/products"
-          exact
-          component={AddProduct}
-        />
-        <AdminRoute path="/admin/products" exact component={ManageProducts} />
-        <AdminRoute
-          path="/admin/product/update/:productId"
-          exact
-          component={UpdateProduct}
-        />
-        <AdminRoute
-          path="/admin/category/update/:categoryId"
-          exact
-          component={UpdateCategoory}
-        />
-      </Switch>
+          <AdminRoute
+            path="/admin/categories"
+            exact
+            component={ManageCategories}
+          />
+          <AdminRoute
+            path="/admin/create/products"
+            exact
+            component={AddProduct}
+          />
+          <AdminRoute path="/admin/products" exact component={ManageProducts} />
+          <AdminRoute
+            path="/admin/product/update/:productId"
+            exact
+            component={UpdateProduct}
+          />
+          <AdminRoute
+            path="/admin/category/update/:categoryId"
+            exact
+            component={UpdateCategoory}
+          />
+          <Route to="/Checkout" exact component={StripeCheckout}></Route>
+        </Switch>
+      </RecoilRoot>
     </BrowserRouter>
   );
 };
