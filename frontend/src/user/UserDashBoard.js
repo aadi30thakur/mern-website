@@ -19,7 +19,7 @@ const UserDashboard = () => {
   useEffect(() => {
     preload();
 
-  }, [])
+  })
 
   const preload = () => {
     getUser(user, token)
