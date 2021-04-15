@@ -25,6 +25,8 @@ exports.createOrder = (req, res) => {
     res.json(order);
   });
 };
+
+
 exports.getAllOrders = (req, res) => {
   Order.find()
     .populate("user", "_id name")

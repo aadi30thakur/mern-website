@@ -12,7 +12,7 @@ const { isAdmin, isAuthenticated, isSignedIn } = require("../controllers/auth");
 router.param("userId", getUserById);
 
 router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
-// rout/er.get("/users",getAllUsers);
+// router.get("/users",getAllUsers);
 router.put("/user/:userId", isSignedIn, isAuthenticated, updateUser);
 
 router.get(

@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
 //my routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
@@ -18,6 +19,41 @@ const path = require("path");
 //   useUnifiedTopology: true
 // });
 
+try {
+  // keepAlive.js
+  const fetch = require('node-fetch');
+  // globals
+  const interval = 60 * 25 * 1000; // interval in milliseconds - {25mins x 60s x 1000}ms
+  const url = "https://tees-store.herokuapp.com/api/products"
+  function wake() {
+    try {
+      const handler = setInterval(() => {
+        fetch(url)
+          .then(res => console.log(`response-ok: ${res.ok}, status: ${res.status}`))
+      }, interval);
+    } catch (err) {
+      console.error('Error occured: retrying...')
+      clearInterval(handler);
+      return setTimeout(() => wake(), 10000);
+    };
+  };
+  wake();
+} catch (err) {
+  console.log(err)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -27,14 +63,15 @@ mongoose
   .then(() => {
     console.log("DB CONNECTED");
   });
+
 //muyfun.run()
 //.then() if it is runnioig then then executes
 //.catch() else catch handles all the errors
 
 //_________________________________________________________________________________________
 //MIDDLE WARE
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 //_________________________________________________________________________________________
