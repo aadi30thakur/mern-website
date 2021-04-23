@@ -25,18 +25,17 @@ const Home = () => {
 
   return (
     <Base title="HOME" description="welcome to the Brand new Tshirt store" >
-      <div className="row text-center">
-        <div className="offset-2 text-center">
-          <CardColumns>
-            {products.map((product, index) => {
-              return (
-                <div key={index} className="col-4 mb-4">
-                  <Card product={product} />
-                </div>
-              );
-            })}
-          </CardColumns>
-        </div>
+      <div className="  ">
+
+        <CardColumns>
+          {products.map((product, index) => {
+            return (
+              <div key={index} className="d-flex justify-content-around ">
+                <Card product={product} />
+              </div>
+            );
+          })}
+        </CardColumns>
       </div>
     </Base>
   );

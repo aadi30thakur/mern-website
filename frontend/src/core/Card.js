@@ -12,7 +12,7 @@ const CardIND = ({
   product,
   addToCart = true,
   removeFromCart = false,
-  setReload = (f) => f,
+  setReload,
   // function(f){return f}
   reload = undefined,
 }) => {
@@ -56,13 +56,13 @@ const CardIND = ({
   const ShowRemoveFromCart = (removeFromCart) => {
     return (
       removeFromCart && (
-        <div className="col-12">
+        <div className="">
           <button
             onClick={() => {
               removeItemFromCart(product._id);
               setReload(!reload);
             }}
-            className="btn btn-block btn-outline-danger mt-2 mb-2"
+            className="btn btn-block btn-outline-danger mt-2 mb-5"
           >
             Remove from cart
           </button>
@@ -88,7 +88,7 @@ const CardIND = ({
         </div>
       </div> */}
       < >
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "auto", marginBottom: "3em" }}>
           <ImageHelper product={product} />
           {getAredirect(redirect)}
           <Card.Body>

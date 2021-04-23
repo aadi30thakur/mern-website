@@ -22,7 +22,7 @@ const Cart = () => {
           <CardColumns>
             {products.map((product, index) => {
               return (
-                <div key={index} className="col-2 mb-4">
+                <div key={index} className="d-flex justify-content-around">
                   <CardIND
                     product={product}
                     addToCart={false}
@@ -32,7 +32,6 @@ const Cart = () => {
                   />
                 </div>)
             }
-
             )}
           </CardColumns>
         </div>
