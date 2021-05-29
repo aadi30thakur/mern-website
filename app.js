@@ -19,29 +19,6 @@ const path = require("path");
 //   useUnifiedTopology: true
 // });
 
-try {
-  // keepAlive.js
-  const fetch = require('node-fetch');
-  // globals
-  const interval = 60 * 25 * 1000; // interval in milliseconds - {25mins x 60s x 1000}ms
-  const url = "https://tees-store.herokuapp.com/api/products"
-  function wake() {
-    try {
-      const handler = setInterval(() => {
-        fetch(url)
-          .then(res => console.log(`response-ok: ${res.ok}, status: ${res.status}`))
-      }, interval);
-    } catch (err) {
-      console.error('Error occured: retrying...')
-      clearInterval(handler);
-      return setTimeout(() => wake(), 10000);
-    };
-  };
-  wake();
-} catch (err) {
-  console.log(err)
-}
-
 
 
 
